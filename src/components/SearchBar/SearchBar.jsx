@@ -9,21 +9,45 @@ export default class SearchBar extends React.Component {
     };
 
     state = {
-        searchImageName: '',
-    }
+        page: 1,
+        searchImage: '',
+        images: [],
+    };
+
+    // componentDidUpdate(prevProps, prevState) {
+    //     if (
+    //         prevState.page !== this.state.page || 
+    //         prevState.searchImage !== this.state.searchImage 
+    //     ) {
+
+    //     }
+
+    // };
 
     handleImageNameChange = event => {
-        this.setState({searchImageName: event.currentTarget.value.toLowerCase()});
+        this.setState({searchImage: event.currentTarget.value.toLowerCase()});
     };
 
     handleSubmit = event => {
         event.preventDefault();
+        this.setState ({
+            page: 1,
+            searchImage: event.target.elements.searchImage.value,
+            images: [],
+        });
+        event.target.reset();
 
-        if (this.state.searchImageName.trim() === '') {
+        if (this.state.searchImage.trim() === '') {
             return toast.info('The search string cannot be empty. Please specify your search query.');
         }
-        this.props.onSubmit(this.state.searchImageName);
-        this.setState({ searchImageName: '' });
+        this.props.onSubmit(this.state.searchImage);
+        this.setState({ searchImage: '' });
+    };
+
+    loadMore = () => {
+        this.setState(prevState => ({
+            page: prevState.page + 1,
+        }));
     };
 
     render () {

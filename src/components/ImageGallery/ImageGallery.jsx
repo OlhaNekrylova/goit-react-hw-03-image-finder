@@ -35,12 +35,6 @@ export default class ImageGallery extends React.Component {
         }
     };
 
-    onLoadMoreBtn = () => {
-        const page = 1;
-        page += 1;
-
-    };
-
     render () {
         const { images, error, status } = this.state;
         

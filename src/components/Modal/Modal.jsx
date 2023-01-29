@@ -1,14 +1,17 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { createPortal } from 'react-dom';
+import PropTypes from 'prop-types';
 import css from './Modal.module.css';
 
 const modalRoot = document.querySelector('#modal-root');
 
 export default class Modal extends React.Component {
     static propTypes = {
-        largeImageURL: PropTypes.string.isRequired,
-        tags: PropTypes.string.isRequired,
+        onClick: PropTypes.func.isRequired,
+        onClose: PropTypes.func.isRequired,
+        children: PropTypes.node.isRequired
+        // largeImageURL: PropTypes.string.isRequired,
+        // tags: PropTypes.string.isRequired,
     };
 
     // state = {
@@ -37,11 +40,12 @@ export default class Modal extends React.Component {
     }
     
     render() {
-        const { largeImageURL,tags } = this.state;
+        // const { largeImageURL,tags } = this.state;
         return createPortal(
-            <div class={css.overlay}>
+            <div class={css.overlay} onClick={this.handleBackdropClick}>
                 <div class={css.modal}>
-                    <img src={largeImageURL} alt={tags} />
+                    {this.props.children}
+                    {/* <img src={largeImageURL} alt={tags} /> */}
                 </div>
             </div>,
             modalRoot,

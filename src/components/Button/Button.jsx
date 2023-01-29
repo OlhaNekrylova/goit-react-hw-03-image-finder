@@ -1,12 +1,13 @@
 import PropTypes from 'prop-types';
 import css from './Button.module.css';
 
-const Button = (onClick) => {
+const Button = ({children, onClick}) => {
     return (
         <div>
-            <button onClick={this.loadMore}
+            <button onClick={onClick}
                 type="button"
                 className={css.loadMoreBtn} > 
+                {children}
                 Load more
             </button>
         </div>
@@ -14,6 +15,7 @@ const Button = (onClick) => {
 };
 
 Button.propTypes = {
+    children: PropTypes.node.isRequired;
     onClick: PropTypes.func.isRequired,
 };
 

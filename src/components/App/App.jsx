@@ -1,8 +1,6 @@
 import React from 'react';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-// import SimpleLightbox from "simplelightbox";
-// import "simplelightbox/dist/simple-lightbox.min.css";
 import SearchBar from '../SearchBar/SearchBar';
 import ImageGallery from '../ImageGallery/ImageGallery';
 import Button from '../Button/Button';
@@ -27,7 +25,9 @@ export default class App extends React.Component {
         <SearchBar onSubmit={this.handleSubmit} />
         <ImageGallery images={this.images} />
         <Button onClick={this.loadMore} />
-        {showModal && <Modal onClose={this.toggleModal} /> }
+        {showModal && <Modal onClose={this.toggleModal} >
+          <img src={largeImageURL} alt={tags} />
+        </Modal>}
         <ToastContainer  autoClose={3000}/>
       </div>
     );

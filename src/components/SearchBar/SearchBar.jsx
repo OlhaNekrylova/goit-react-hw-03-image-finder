@@ -54,12 +54,12 @@ export default class SearchBar extends React.Component {
         return (
             <header className={css.searchbar}>
                 <form onSubmit={this.handleSubmit}
-                    className={css.form}>
-                    <button type="submit" className={css.button}>
-                        <span className={css.buttonLabel}>Search</span>
+                    className={css.searchForm}>
+                    <button type="submit" className={css.searchFormBtn}>
+                        <span className={css.searchFormBtnLabel}>Search</span>
                     </button>
                     <input
-                        className={css.input}
+                        className={css.searchFormInput}
                         type="text"
                         autocomplete="off"
                         autofocus

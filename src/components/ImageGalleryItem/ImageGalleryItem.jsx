@@ -4,7 +4,8 @@ import css from './ImageGalleryItem.module.css';
 const ImageGalleryItem = ({ webformatURL, tags }) => {
     return (
         <li className={css.galleryItem}>
-            <img src={webformatURL} alt={tags} loading="lazy" />
+            <img src={webformatURL} alt={tags} 
+            className={css.imageGalleryItemImage}/>
         </li>
     );
 };

@@ -3,10 +3,10 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 // import SimpleLightbox from "simplelightbox";
 // import "simplelightbox/dist/simple-lightbox.min.css";
-import SearchBar from './SearchBar/SearchBar';
-import ImageGallery from './ImageGallery/ImageGallery';
-import Button from './Button/Button';
-import Modal from './Modal/Modal';
+import SearchBar from '../SearchBar/SearchBar';
+import ImageGallery from '../ImageGallery/ImageGallery';
+import Button from '../Button/Button';
+import Modal from '../Modal/Modal';
 
 export default class App extends React.Component {
   state = {

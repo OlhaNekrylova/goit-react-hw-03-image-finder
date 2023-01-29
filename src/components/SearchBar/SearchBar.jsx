@@ -20,7 +20,7 @@ export default class SearchBar extends React.Component {
         event.preventDefault();
 
         if (this.state.searchImageName.trim() === '') {
-            return toast.info('enter the query text');
+            return toast.info('The search string cannot be empty. Please specify your search query.');
         }
         this.props.onSubmit(this.state.searchImageName);
         this.setState({ searchImageName: '' });

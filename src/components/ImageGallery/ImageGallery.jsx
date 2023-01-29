@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import ImageGalleryItem from 'components/ImageGalleryItem/ImageGalleryItem';
 import pokemonAPI from '../../services/images-api';
+import ImageGalleryItem from 'components/ImageGalleryItem/ImageGalleryItem';
+import Loader from '../Loader/Loader.jsx';
 import css from './ImageGallery.module.css';
 
 
@@ -42,7 +43,9 @@ export default class ImageGallery extends React.Component {
         }
 
         if (status === 'pending') {
-            return <div>loading</div>;
+            return <div>
+                <Loader /> loading
+                </div>;
         }
 
         if (status === 'rejected') {

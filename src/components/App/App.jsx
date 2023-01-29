@@ -1,5 +1,5 @@
 import React from 'react';
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 // import SimpleLightbox from "simplelightbox";
 // import "simplelightbox/dist/simple-lightbox.min.css";
@@ -7,6 +7,7 @@ import SearchBar from '../SearchBar/SearchBar';
 import ImageGallery from '../ImageGallery/ImageGallery';
 import Button from '../Button/Button';
 import Modal from '../Modal/Modal';
+import css from './App.module.css';
 
 export default class App extends React.Component {
   state = {
@@ -22,13 +23,13 @@ export default class App extends React.Component {
   render () {
     const {showModal} = this.state;
     return (
-      <>
-      <SearchBar onSubmit={this.handleSubmit} />
-      <ImageGallery images={this.images} />
-      <Button onClick={this.loadMore} />
-      {showModal && <Modal onClose={this.toggleModal} /> }
-      <ToastContainer  autoClose={3000}/>
-      </>
+      <div className={css.app}>
+        <SearchBar onSubmit={this.handleSubmit} />
+        <ImageGallery images={this.images} />
+        <Button onClick={this.loadMore} />
+        {showModal && <Modal onClose={this.toggleModal} /> }
+        <ToastContainer  autoClose={3000}/>
+      </div>
     );
   };
 

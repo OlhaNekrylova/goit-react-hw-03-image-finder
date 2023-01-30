@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import pokemonAPI from '../../services/imagesApi';
+import { toast } from 'react-toastify';
 import ImageGalleryItem from 'components/ImageGalleryItem/ImageGalleryItem';
 import Loader from '../Loader/Loader.jsx';
 import css from './ImageGallery.module.css';
@@ -39,7 +40,8 @@ export default class ImageGallery extends React.Component {
         const { images, error, status } = this.state;
         
         if (status === 'idle') {
-            return <div>enter the query text</div>;
+            return toast.info('Please, enter the query text.');
+            // return <div>enter the query text</div>;
         }
 
         if (status === 'pending') {

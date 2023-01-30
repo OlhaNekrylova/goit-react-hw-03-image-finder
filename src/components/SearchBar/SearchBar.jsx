@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { toast } from 'react-toastify';
-import { ImSearch } from "react-icons/im";
+// import { ImSearch } from "react-icons/im";
 import css from './SearchBar.module.css';
 
 export default class SearchBar extends React.Component {
@@ -30,7 +30,7 @@ export default class SearchBar extends React.Component {
         event.target.reset();
 
         if (this.state.searchImage.trim() === '') {
-            return toast.info('The search string cannot be empty. Please specify your search query.');
+            return toast.info('Please, specify your search query.');
         }
         this.props.onSubmit(this.state.searchImage);
         this.setState({ searchImage: '' });
@@ -43,7 +43,7 @@ export default class SearchBar extends React.Component {
                     className={css.searchForm}>
                     <button className={css.searchFormBtn}
                             type="submit">
-                                <ImSearch />
+                                {/* <ImSearch className={css.searchFormBtnLabel}/> */}
                         <span className={css.searchFormBtnLabel}>Search</span>
                     </button>
                     <input onChange={this.handleChange}
@@ -52,6 +52,8 @@ export default class SearchBar extends React.Component {
                         autocomplete="off"
                         autofocus
                         placeholder="Search images and photos"
+                        name="searchImage"
+                        value={this.searchImage}
                     />
                 </form>
             </header>

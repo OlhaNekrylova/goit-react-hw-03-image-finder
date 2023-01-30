@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import pokemonAPI from '../../services/images-api';
+import pokemonAPI from '../../services/imagesApi';
 import ImageGalleryItem from 'components/ImageGalleryItem/ImageGalleryItem';
 import Loader from '../Loader/Loader.jsx';
 import css from './ImageGallery.module.css';
@@ -29,7 +29,7 @@ export default class ImageGallery extends React.Component {
             this.setState({ status: 'pending' });
 
             pokemonAPI
-                .fetchImages()
+                .fetchImages(nextImages)
                 .then(images => this.setState({ images, status: 'resolved' }))
                 .catch(error => this.setState({ error, status: 'rejected'}));
         }
@@ -55,11 +55,13 @@ export default class ImageGallery extends React.Component {
         if (status === 'resolved') {
             return (
                 <ul className={css.imageGallery}>
-                    {images.map(({id, webformatURL, tags}) => (
+                    {images.map(({ id, webformatURL, largeImageURL, tags, onClick }) => (
                         <ImageGalleryItem
-                            key={id} 
-                            src={webformatURL}
-                            alt={tags}
+                        key={id}
+                        webformatURL={webformatURL}
+                        largeImageURL={largeImageURL}
+                        tags={tags}
+                        onClick={onClick}
                         />
                     ))}
                 </ul>

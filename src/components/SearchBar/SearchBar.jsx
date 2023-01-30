@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { toast } from 'react-toastify';
+import { ImSearch } from "react-icons/im";
 import css from './SearchBar.module.css';
 
 export default class SearchBar extends React.Component {
@@ -14,17 +15,8 @@ export default class SearchBar extends React.Component {
         images: [],
     };
 
-    // componentDidUpdate(prevProps, prevState) {
-    //     if (
-    //         prevState.page !== this.state.page || 
-    //         prevState.searchImage !== this.state.searchImage 
-    //     ) {
-
-    //     }
-
-    // };
-
-    handleImageNameChange = event => {
+    
+    handleChange = event => {
         this.setState({searchImage: event.currentTarget.value.toLowerCase()});
     };
 
@@ -44,21 +36,17 @@ export default class SearchBar extends React.Component {
         this.setState({ searchImage: '' });
     };
 
-    loadMore = () => {
-        this.setState(prevState => ({
-            page: prevState.page + 1,
-        }));
-    };
-
     render () {
         return (
             <header className={css.searchbar}>
                 <form onSubmit={this.handleSubmit}
                     className={css.searchForm}>
-                    <button type="submit" className={css.searchFormBtn}>
+                    <button className={css.searchFormBtn}
+                            type="submit">
+                                <ImSearch />
                         <span className={css.searchFormBtnLabel}>Search</span>
                     </button>
-                    <input
+                    <input onChange={this.handleChange}
                         className={css.searchFormInput}
                         type="text"
                         autocomplete="off"

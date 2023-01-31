@@ -35,7 +35,7 @@ export default class SearchBar extends React.Component {
         console.log(event.target.elements);
         console.log( event.target.elements.query);
         console.log(event.target.elements.query.value);
-        // event.target.reset();
+        event.target.reset();
 
         if (this.state.query.trim() === '') {
             return toast.info('Please, specify your search query.');

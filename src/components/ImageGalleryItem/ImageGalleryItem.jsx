@@ -5,13 +5,13 @@ const ImageGalleryItem = ({
     webformatURL,
     largeImageURL,
     tags,
-    onClick,
+    // onClick,
     }) => {
     return (
         <li
-            onClick={() => {
-            onClick(largeImageURL);
-        }}
+        //     onClick={() => {
+        //     onClick(largeImageURL);
+        // }}
             className={css.galleryItem} >
             <img 
                 src={webformatURL} 
@@ -26,7 +26,7 @@ ImageGalleryItem.propTypes = {
     webformatURL: PropTypes.string.isRequired,
     largeImageURL: PropTypes.string.isRequired,
     tags: PropTypes.string.isRequired,
-    onClick: PropTypes.func.isRequired,
+    // onClick: PropTypes.func.isRequired,
 };
 
 export default ImageGalleryItem;

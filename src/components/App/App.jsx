@@ -13,18 +13,17 @@ export default class App extends React.Component {
   state = {
     page: 1,
     query: '',
-
     showModal: false,
     largeImageURL: null,
-    tags: null,
-    
+    // tags: null,
+    error: null,
     images: [],
     isLoading: false,
 };
 
   componentDidUpdate(prevProps, prevState) {
-    const prevImages = prevProps.images;
-    const nextImages = this.props.images;
+    const prevImages = prevState.query;
+    const nextImages = this.state.query;
     const { page } = this.state;
     
     if ((prevImages !== nextImages) || (
@@ -47,9 +46,9 @@ export default class App extends React.Component {
           return toast.error('Sorry, no images found. Please, try again!');
         }
 
-        if (page === 1) {
-          toast.success(`Hooray! We found ${totalHits} images.`);
-        }
+        // if (page === 1) {
+        //   toast.success(`Hooray! We found ${totalHits} images.`);
+        // }
 
         if (page === totalPages) {
           toast.info("You've reached the end of search results.");

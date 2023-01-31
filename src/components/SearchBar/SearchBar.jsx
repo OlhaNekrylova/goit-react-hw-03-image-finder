@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { toast } from 'react-toastify';
-// import { ImSearch } from "react-icons/im";
+import { ImSearch } from "react-icons/im";
 import css from './SearchBar.module.css';
 
 export default class SearchBar extends React.Component {
@@ -43,8 +43,8 @@ export default class SearchBar extends React.Component {
                     className={css.searchForm}>
                     <button className={css.searchFormBtn}
                             type="submit">
-                                {/* <ImSearch className={css.searchFormBtnLabel}/> */}
-                        <span className={css.searchFormBtnLabel}>Search</span>
+                                <ImSearch className={css.searchFormBtnLabel}/>
+                        {/* <span className={css.searchFormBtnLabel}>S</span> */}
                     </button>
                     <input onChange={this.handleChange}
                         className={css.searchFormInput}

@@ -13,12 +13,29 @@ export default class App extends React.Component {
     page: 1,
     perPage: 12,
     searchImage: '',
+
     showModal: false,
     largeImageURL: null,
+    tags: null,
+    
     images: null,
     error: null,
     status: 'idle',
   };
+
+  // componentDidUpdate(prevProps, prevState) {
+  //   const prevImages = prevProps.images;
+  //   const nextImages = this.props.images;
+    
+  //   if (prevImages !== nextImages) {
+  //     this.setState({ status: 'pending' });
+    
+  //     pokemonAPI
+  //     .fetchImages(nextImages)
+  //     .then(images => this.setState({ images, status: 'resolved' }))
+  //     .catch(error => this.setState({ error, status: 'rejected'}));
+  //   }
+  // };
 
   // componentDidUpdate(prevProps, prevState) {
   //       if (
@@ -26,7 +43,7 @@ export default class App extends React.Component {
   //           prevState.searchImage !== this.state.searchImage 
   //       ) {
   //         pokemonAPI
-  //         .fetchImages()
+  //         .fetchImages(nextImages)
   //         .then(images => this.setState({ images, status: 'resolved' }))
   //         .catch(error => this.setState({ error, status: 'rejected'}));
   //       }
@@ -52,7 +69,7 @@ export default class App extends React.Component {
       <div className={css.app}>
         <SearchBar onSubmit={this.handleSubmit} />
         <ImageGallery onClick={this.toggleModal} images={this.images} />
-        <Button onClick={this.loadMore} />
+        {this.prevImages && <Button onClick={this.loadMore}/>} 
         {showModal && <Modal onClose={this.toggleModal}>
           <img src={largeImageURL} alt={tags} />
         </Modal>}

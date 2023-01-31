@@ -6,7 +6,6 @@ import ImageGalleryItem from 'components/ImageGalleryItem/ImageGalleryItem';
 import Loader from '../Loader/Loader.jsx';
 import css from './ImageGallery.module.css';
 
-
 export default class ImageGallery extends React.Component {
     static propTypes = {
         images: PropTypes.arrayOf(
@@ -34,6 +33,16 @@ export default class ImageGallery extends React.Component {
                 .then(images => this.setState({ images, status: 'resolved' }))
                 .catch(error => this.setState({ error, status: 'rejected'}));
         }
+
+        // if (
+        //     prevState.page !== this.state.page || 
+        //     prevState.searchImage !== this.state.searchImage 
+        // ) {
+        //     pokemonAPI
+        //     .fetchImages(nextImages)
+        //     .then(images => this.setState({ images, status: 'resolved' }))
+        //     .catch(error => this.setState({ error, status: 'rejected'}));
+        // }
     };
 
     render () {
@@ -73,4 +82,31 @@ export default class ImageGallery extends React.Component {
 };
 
 
+
+
+// const ImageGallery = ({images}) => {
+//     return (
+//         <ul className={css.imageGallery}>
+//             {images.map(({ id, webformatURL, largeImageURL, tags, onClick }) => (
+//                 <ImageGalleryItem
+//                     key={id}
+//                     webformatURL={webformatURL}
+//                     largeImageURL={largeImageURL}
+//                     tags={tags}
+//                     onClick={onClick}
+//                 />
+//             ))}
+//         </ul>
+//     );
+// };
+
+// ImageGallery.propTypes = {
+//     images: PropTypes.arrayOf(
+//         PropTypes.shape({
+//             id: PropTypes.string.isRequired,
+//         })
+//     ),
+// };
+
+// export default ImageGallery;
 

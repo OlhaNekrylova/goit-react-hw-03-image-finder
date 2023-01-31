@@ -8,7 +8,6 @@ const Button = ({children, onClick}) => {
                 type="button"
                 className={css.loadMoreBtn} > 
                 {children}
-                Load more
             </button>
         </div>
     );

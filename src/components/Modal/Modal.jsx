@@ -7,8 +7,8 @@ const modalRoot = document.querySelector('#modal-root');
 
 export default class Modal extends React.Component {
     static propTypes = {
-        onClick: PropTypes.func.isRequired,
-        onClose: PropTypes.func.isRequired,
+        onClick: PropTypes.func,
+        onClose: PropTypes.func,
         children: PropTypes.node.isRequired
         // largeImageURL: PropTypes.string.isRequired,
         // tags: PropTypes.string.isRequired,
@@ -20,11 +20,11 @@ export default class Modal extends React.Component {
     // };
 
     componentDidMount() {
-        window.addEventListener('keydown', this.hadleKeyDown);
+        window.addEventListener('keydown', this.handleKeyDown);
     };
 
     componentWillUnmount() {
-        window.removeEventListener('keydown', this.hadleKeyDown);
+        window.removeEventListener('keydown', this.handleKeyDown);
     };
 
     handleKeyDown = event => {

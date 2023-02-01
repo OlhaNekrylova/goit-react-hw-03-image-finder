@@ -5,10 +5,10 @@ import ImageGalleryItem from 'components/ImageGalleryItem/ImageGalleryItem';
 // import Loader from '../Loader/Loader.jsx';
 import css from './ImageGallery.module.css';
 
-const ImageGallery = ({images, onClick }) => {
+const ImageGallery = ({images, onClick}) => {
     return (
         <ul className={css.imageGallery}>
-            {images.map(({ id, webformatURL, largeImageURL, tags, onClick }) => (
+            {images.map(({ id, webformatURL, largeImageURL, tags }) => (
                 <ImageGalleryItem
                     key={id}
                     webformatURL={webformatURL}

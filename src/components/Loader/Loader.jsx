@@ -3,12 +3,10 @@ import css from './Loader.module.css';
 
 const Loader = () => {
     return (
-        <>
-            <RevolvingDot 
-            className={css.loader}            
+        <div className={css.loader}>
+            <RevolvingDot            
             />
-        </>
-        
+        </div>
     );
 };
 

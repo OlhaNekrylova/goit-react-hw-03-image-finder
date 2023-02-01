@@ -3,13 +3,11 @@ import css from './Button.module.css';
 
 const Button = ({children, onClick}) => {
     return (
-        <div>
-            <button onClick={onClick}
-                type="button"
-                className={css.loadMoreBtn} > 
-                {children}
-            </button>
-        </div>
+        <button onClick={onClick}
+            type="button"
+            className={css.loadMoreBtn} > 
+            {children}
+        </button>
     );
 };
 

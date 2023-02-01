@@ -42,8 +42,8 @@ export default class Modal extends React.Component {
     render() {
         // const { largeImageURL,tags } = this.state;
         return createPortal(
-            <div class={css.overlay} onClick={this.handleBackdropClick}>
-                <div class={css.modal}>
+            <div className={css.overlay} onClick={this.handleBackdropClick}>
+                <div className={css.modal}>
                     {this.props.children}
                     {/* <img src={largeImageURL} alt={tags} /> */}
                 </div>

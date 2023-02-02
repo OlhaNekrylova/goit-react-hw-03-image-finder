@@ -15,7 +15,6 @@ export default class App extends React.Component {
     query: '',
     showModal: false,
     largeImageURL: null,
-    // tags: null,
     error: null,
     images: [],
     isLoading: false,
@@ -46,10 +45,6 @@ export default class App extends React.Component {
           return toast.error('Sorry, no images found. Please, try again!');
         }
 
-        // if (page === 1) {
-        //   toast.success(`Hooray! We found ${totalHits} images.`);
-        // }
-
         if (page === totalPages) {
           toast.info("You've reached the end of search results.");
         }
@@ -64,7 +59,6 @@ export default class App extends React.Component {
         });
         this.setState(({ images }) => ({
           images: [...images, ...data],
-          // page: page + 1,
           total: totalHits,
         }));
       })

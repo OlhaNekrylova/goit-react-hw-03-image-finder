@@ -10,11 +10,8 @@ export default class SearchBar extends React.Component {
     };
 
     state = {
-        // page: 1,
         query: '',
-        // images: [],
     };
-
     
     handleChange = event => {
         // console.log(event);
@@ -25,16 +22,11 @@ export default class SearchBar extends React.Component {
 
     handleSubmit = event => {
         event.preventDefault();
-        // this.setState ({
-        //     page: 1,
-        //     query: event.target.elements.query.value,
-        //     images: [],
-        // });
-        console.log(event);
-        console.log(event.target);
-        console.log(event.target.elements);
-        console.log( event.target.elements.query);
-        console.log(event.target.elements.query.value);
+        // console.log(event);
+        // console.log(event.target);
+        // console.log(event.target.elements);
+        // console.log( event.target.elements.query);
+        // console.log(event.target.elements.query.value);
         event.target.reset();
 
         if (this.state.query.trim() === '') {
@@ -58,9 +50,7 @@ export default class SearchBar extends React.Component {
                     <button className={css.searchFormBtn}
                             type="submit">
                                 <ImSearch style={{ width: 20, height: 20 }}
-                                    // className={css.searchFormBtnLabel}
-                                    />
-                        {/* <span className={css.searchFormBtnLabel}>S</span> */}
+                                />
                     </button>
                     <input onChange={this.handleChange}
                         className={css.searchFormInput}

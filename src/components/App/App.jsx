@@ -66,16 +66,6 @@ export default class App extends React.Component {
       .finally(() => this.setState({ isLoading: false }));
   };
 
-  handleSubmit = (query) => {
-    if (query === this.state.query) return;
-    this.setState({
-      images: [],
-      query,
-      page: 1,
-      error: null,
-    });
-  };
-
   handleSearch = query => {
     if (query === this.state.query) return;
     this.setState({
